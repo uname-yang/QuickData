@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{94256741-546F-489C-9535-63EFADCE1372}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FastDB</RootNamespace>
+    <AssemblyName>FastDB</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoMapper.Net4, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SnappyPI">
+      <HintPath>..\packages\Snappy\SnappyPI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AOF\Adapter.cs" />
+    <Compile Include="Cache\CacheService.cs" />
+    <Compile Include="Cache\Memory.cs" />
+    <Compile Include="Cache\Repoistory\SingleRES.cs" />
+    <Compile Include="Pattern\AbLoop.cs" />
+    <Compile Include="Service\IMemory.cs" />
+    <Compile Include="Cache\Repoistory\ISingleRES.cs" />
+    <Compile Include="Core\Fastdb.cs" />
+    <Compile Include="Core\FastObject.cs" />
+    <Compile Include="Core\ObjectEncoding.cs" />
+    <Compile Include="Core\ObjectType.cs" />
+    <Compile Include="Log\DSFLogger.cs" />
+    <Compile Include="Log\IOLogger.cs" />
+    <Compile Include="Log\LogType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\FastDB.cs" />
+    <Compile Include="Service\IAOF.cs" />
+    <Compile Include="Service\IFastDB.cs" />
+    <Compile Include="Service\ILogger.cs" />
+    <Compile Include="Cache\IMemoryCache.cs" />
+    <Compile Include="Struct\HashObject.cs" />
+    <Compile Include="Struct\ListObject.cs" />
+    <Compile Include="Struct\SetObject.cs" />
+    <Compile Include="Struct\StringObject.cs" />
+    <Compile Include="Struct\ZListObject.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SQLST.Data\SQLST.Data.csproj">
+      <Project>{5755ac96-efd7-48fe-9d7b-2480c431077a}</Project>
+      <Name>SQLST.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLST.Model\SQLST.Model.csproj">
+      <Project>{c97d1044-dee1-4112-9d07-897acfb5c416}</Project>
+      <Name>SQLST.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLST\SQLST.csproj">
+      <Project>{b0365563-b6ae-455c-80ff-b053f1479068}</Project>
+      <Name>SQLST</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

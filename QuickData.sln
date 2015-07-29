@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickData", "QuickData\QuickData.csproj", "{62C24488-6330-4450-BF54-0EEF632BED31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickData.Tests", "QuickData.Tests\QuickData.Tests.csproj", "{663A2992-BC45-49DB-A0C1-5F32D52D8B16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastDB", "FastDB\FastDB.csproj", "{94256741-546F-489C-9535-63EFADCE1372}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AOF_SQL", "AOF_SQL", "{417B702B-CE38-4594-8BDB-E1D2A2FD28DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLST", "SQLST\SQLST.csproj", "{B0365563-B6AE-455C-80FF-B053F1479068}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLST.Data", "SQLST.Data\SQLST.Data.csproj", "{5755AC96-EFD7-48FE-9D7B-2480C431077A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLST.Model", "SQLST.Model\SQLST.Model.csproj", "{C97D1044-DEE1-4112-9D07-897ACFB5C416}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastDB.Tests", "FastDB.Tests\FastDB.Tests.csproj", "{37B3A65B-B67B-48C5-BC33-4099D505F1A2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62C24488-6330-4450-BF54-0EEF632BED31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62C24488-6330-4450-BF54-0EEF632BED31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62C24488-6330-4450-BF54-0EEF632BED31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62C24488-6330-4450-BF54-0EEF632BED31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{663A2992-BC45-49DB-A0C1-5F32D52D8B16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{663A2992-BC45-49DB-A0C1-5F32D52D8B16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{663A2992-BC45-49DB-A0C1-5F32D52D8B16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{663A2992-BC45-49DB-A0C1-5F32D52D8B16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94256741-546F-489C-9535-63EFADCE1372}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94256741-546F-489C-9535-63EFADCE1372}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94256741-546F-489C-9535-63EFADCE1372}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94256741-546F-489C-9535-63EFADCE1372}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0365563-B6AE-455C-80FF-B053F1479068}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0365563-B6AE-455C-80FF-B053F1479068}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0365563-B6AE-455C-80FF-B053F1479068}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0365563-B6AE-455C-80FF-B053F1479068}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5755AC96-EFD7-48FE-9D7B-2480C431077A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5755AC96-EFD7-48FE-9D7B-2480C431077A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5755AC96-EFD7-48FE-9D7B-2480C431077A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5755AC96-EFD7-48FE-9D7B-2480C431077A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C97D1044-DEE1-4112-9D07-897ACFB5C416}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C97D1044-DEE1-4112-9D07-897ACFB5C416}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C97D1044-DEE1-4112-9D07-897ACFB5C416}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C97D1044-DEE1-4112-9D07-897ACFB5C416}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37B3A65B-B67B-48C5-BC33-4099D505F1A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37B3A65B-B67B-48C5-BC33-4099D505F1A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37B3A65B-B67B-48C5-BC33-4099D505F1A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37B3A65B-B67B-48C5-BC33-4099D505F1A2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B0365563-B6AE-455C-80FF-B053F1479068} = {417B702B-CE38-4594-8BDB-E1D2A2FD28DF}
+		{5755AC96-EFD7-48FE-9D7B-2480C431077A} = {417B702B-CE38-4594-8BDB-E1D2A2FD28DF}
+		{C97D1044-DEE1-4112-9D07-897ACFB5C416} = {417B702B-CE38-4594-8BDB-E1D2A2FD28DF}
+	EndGlobalSection
+EndGlobal
