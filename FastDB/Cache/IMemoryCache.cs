@@ -9,12 +9,13 @@ namespace FastDB.Cache
 {
     public interface IMemoryCache
     {
-        bool EnSure(string key,FastObject entity);
+        bool EnSure(string key);
+        FastObject Get(string key);
         void Insert(string key, FastObject entity);
         void Update(string key, FastObject entity);
         void Delete(string key);
-        FastObject Find(params object[] keyValues);
-        FastObject Get(string key);
-        void Excute(string sql, object[] param);
+        void Load(string key, FastObject entity);
+        //FastObject Find(string key, object[] param);
+        //void Excute(string key, object[] param);
     }
 }

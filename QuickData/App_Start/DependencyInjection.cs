@@ -12,9 +12,11 @@ using Autofac.Integration.WebApi;
 using FastDB.Service;
 using SQLST;
 using FastDB.AOF;
-using FastDB.Log;
 using FastDB.Cache;
 using FastDB.Cache.Repoistory;
+using FastDB.Common;
+using FastDB.Pattern;
+using FastDB.Pattern.Implementation;
 
 namespace QuickData.App_Start
 {
@@ -31,12 +33,22 @@ namespace QuickData.App_Start
 
             builder.RegisterType<FastDBService>().As<IFastDB>().InstancePerLifetimeScope();
             builder.RegisterType<AOFAdapter>().As<IAOF>().InstancePerLifetimeScope();
-            builder.RegisterType<IOLogger>().As<ILogger>().InstancePerLifetimeScope();
             builder.RegisterType<Memory>().As<IMemory>().InstancePerLifetimeScope();
+
+            builder.RegisterType<HashEntity>().As<IHashEntity>().InstancePerLifetimeScope();
+            builder.RegisterType<ListEntity>().As<IListEntity>().InstancePerLifetimeScope();
+            builder.RegisterType<SingleEntity>().As<ISingleEntity>().InstancePerLifetimeScope();
+            builder.RegisterType<TreeEntity>().As<ITreeEntity>().InstancePerLifetimeScope();
+
+            builder.RegisterType<SingleCache>().As<ISingleCache>().InstancePerLifetimeScope();
+            builder.RegisterType<ListCache>().As<IListCache>().InstancePerLifetimeScope();
+            builder.RegisterType<HashCache>().As<IHashCache>().InstancePerLifetimeScope();
+            builder.RegisterType<TreeCache>().As<ITreeCache>().InstancePerLifetimeScope();
 
             builder.RegisterType<KeyValueSR>().As<IKeyValueSR>().InstancePerLifetimeScope();
 
-            builder.RegisterType<SingleRES>().As<ISingleRES>().InstancePerLifetimeScope();
+            builder.RegisterType<DBStart>();
+            builder.RegisterType<DBExit>();
 
             IContainer container = builder.Build();
 

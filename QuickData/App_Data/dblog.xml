@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Records>
+  <Item key="1st" MD5="00001111">
+    <Value>[{1},{2}]</Value>
+    <ObjectType>SingleEntity</ObjectType>
+    <Type>Const</Type>
+    <Issync>20</Issync>
+  </Item>
+  <Item key="start" MD5="System.Byte[]" ObjectType="fast_string">
+    <Value>2015/7/31 16:32:47</Value>
+    <Type>Post</Type>
+    <Issync>0</Issync>
+  </Item>
+  <Item key="loop" MD5="System.Byte[]" ObjectType="fast_string">
+    <Value>2015/7/31 16:33:00</Value>
+    <Type>Post</Type>
+    <Issync>0</Issync>
+  </Item>
+  <Item key="loop" MD5="System.Byte[]" ObjectType="fast_string">
+    <Value>2015/7/31 16:33:07</Value>
+    <Type>Post</Type>
+    <Issync>0</Issync>
+  </Item>
+  <Item key="loop" MD5="System.Byte[]" ObjectType="fast_string">
+    <Value>2015/7/31 16:33:08</Value>
+    <Type>Post</Type>
+    <Issync>0</Issync>
+  </Item>
+  <Item key="loop" MD5="System.Byte[]" ObjectType="fast_string">
+    <Value>2015/7/31 16:33:08</Value>
+    <Type>Post</Type>
+    <Issync>0</Issync>
+  </Item>
+  <Item key="loop" MD5="System.Byte[]" ObjectType="fast_string">
+    <Value>2015/7/31 16:33:09</Value>
+    <Type>Post</Type>
+    <Issync>0</Issync>
+  </Item>
+  <Item key="loop" MD5="System.Byte[]" ObjectType="fast_string">
+    <Value>2015/7/31 16:33:10</Value>
+    <Type>Post</Type>
+    <Issync>0</Issync>
+  </Item>
+  <Item key="loop" MD5="System.Byte[]" ObjectType="fast_string">
+    <Value>2015/7/31 16:33:12</Value>
+    <Type>Post</Type>
+    <Issync>0</Issync>
+  </Item>
+  <Item key="start" MD5="System.Byte[]" ObjectType="fast_string">
+    <Value>2015/7/31 16:33:55</Value>
+    <Type>Post</Type>
+    <Issync>0</Issync>
+  </Item>
+</Records>

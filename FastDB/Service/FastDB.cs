@@ -4,49 +4,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FastDB.Pattern;
 
 namespace FastDB.Service
 {
     public class FastDBService : IFastDB
     {
-        public IAOF AOF
-        {
-            get;
-            set;
-        }
+        public IHashEntity HashEntity
+        { get; set; }
 
-        public ILogger Logger
-        {
-            get;
-            set;
-        }
+        public IListEntity ListEntity
+        { get; set; }
 
-        public IMemory Memory
-        {
-            get;
-            set;
-        }
+        public ISingleEntity SingleEntity
+        { get; set; }
 
-        public FastDBService(IAOF _AOF, ILogger _Logger,IMemory _Memory)
-        {
-            AOF = _AOF;
-            Logger = _Logger;
-            Memory = _Memory;
-        }
+        public ITreeEntity TreeEntity
+        { get; set; }
 
-        public void Start()
+        public FastDBService(IHashEntity _HashEntity, IListEntity _ListEntity, ISingleEntity _SingleEntity,  ITreeEntity _TreeEntity)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Loop()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void End()
-        {
-            throw new NotImplementedException();
+            HashEntity = _HashEntity;
+            ListEntity = _ListEntity;
+            SingleEntity = _SingleEntity;
+            TreeEntity = _TreeEntity;
         }
     }
 }

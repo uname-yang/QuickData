@@ -1,41 +1,47 @@
-﻿using System;
+﻿using FastDB.Query;
+using FastDB.Service;
+using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+using System.Diagnostics;
 using System.Web.Http;
+using System.Web.Mvc;
 
 namespace QuickData.Controllers
 {
     public class ListController : ApiController
     {
-        // GET: api/SingleEntity/5
-        public string Get(string key)
+        private readonly IFastDB _fastdb;
+        public ListController(IFastDB fastdb)
         {
-            return "value";
+            _fastdb = fastdb;
         }
 
-        // GET: api/SingleEntity
-        public IEnumerable<string> Get(string[] keys)
+        [JsonQuery]
+        public JArray Get(string key)
         {
-            return new string[] { "value1", "value2" };
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+           var Data = _fastdb.ListEntity.Get(key);
+            sw.Stop();
+            var tt = sw.Elapsed;
+            return Data;
         }
 
-        // POST: api/SingleEntity
-        public void Post(string key, [FromBody]string value)
+        public void Post(string key, [FromBody]object value)
         {
-
+            _fastdb.ListEntity.Insert(key, value);
         }
 
-        // PUT: api/SingleEntity/5
-        public void Put(string key, [FromBody]string value)
+        public void Put(string key, [FromBody]object value)
         {
-
+            _fastdb.ListEntity.Update(key, value);
         }
 
-        // DELETE: api/SingleEntity/5
         public void Delete(string key)
         {
+            _fastdb.ListEntity.Delete(key);
         }
+
+
     }
 }

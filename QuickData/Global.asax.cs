@@ -1,4 +1,5 @@
-﻿using FastDB.Core;
+﻿using FastDB.Common;
+using FastDB.Core;
 using FastDB.Service;
 using QuickData.App_Start;
 using System;
@@ -18,20 +19,20 @@ namespace QuickData
         {
             AreaRegistration.RegisterAllAreas();
 
-            GlobalConfiguration.Configure(WebApiConfig.Register);
             //WebApiConfig.Register(GlobalConfiguration.Configuration);
+            GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             DependencyInjection.Initialise();
-
+            DependencyResolver.Current.GetService<DBStart>();
+            GlobalConfiguration.Configuration.EnsureInitialized();//???
         }
 
         protected void Application_End()
         {
-          
-            Console.WriteLine("Exit");
+           DependencyResolver.Current.GetService<DBExit>();
         }
     }
 }

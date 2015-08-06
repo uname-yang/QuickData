@@ -33,8 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -91,8 +97,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Singletest.cs" />
+    <Compile Include="Controllers\Listtest.cs" />
+    <Compile Include="Controllers\Hashtest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -101,9 +109,25 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FastDB\FastDB.csproj">
+      <Project>{94256741-546f-489c-9535-63efadce1372}</Project>
+      <Name>FastDB</Name>
+    </ProjectReference>
     <ProjectReference Include="..\QuickData\QuickData.csproj">
       <Project>{62C24488-6330-4450-BF54-0EEF632BED31}</Project>
       <Name>QuickData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLST.Data\SQLST.Data.csproj">
+      <Project>{5755ac96-efd7-48fe-9d7b-2480c431077a}</Project>
+      <Name>SQLST.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLST.Model\SQLST.Model.csproj">
+      <Project>{c97d1044-dee1-4112-9d07-897acfb5c416}</Project>
+      <Name>SQLST.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLST\SQLST.csproj">
+      <Project>{b0365563-b6ae-455c-80ff-b053f1479068}</Project>
+      <Name>SQLST</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

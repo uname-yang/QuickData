@@ -9,6 +9,9 @@ namespace FastDB.Service
 {
     public interface IMemory
     {
-        ISingleRES SingleRES { get; set; }
+        ISingleCache SingleCache { get; set; }
+        IListCache ListCache { get; set; }
+        IHashCache HashCache { get; set; }
+        ITreeCache TreeCache { get; set; }
     }
 }

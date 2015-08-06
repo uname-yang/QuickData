@@ -17,8 +17,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLST.Data", "SQLST.Data\SQ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLST.Model", "SQLST.Model\SQLST.Model.csproj", "{C97D1044-DEE1-4112-9D07-897ACFB5C416}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastDB.Tests", "FastDB.Tests\FastDB.Tests.csproj", "{37B3A65B-B67B-48C5-BC33-4099D505F1A2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,10 +47,6 @@ Global
 		{C97D1044-DEE1-4112-9D07-897ACFB5C416}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C97D1044-DEE1-4112-9D07-897ACFB5C416}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C97D1044-DEE1-4112-9D07-897ACFB5C416}.Release|Any CPU.Build.0 = Release|Any CPU
-		{37B3A65B-B67B-48C5-BC33-4099D505F1A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{37B3A65B-B67B-48C5-BC33-4099D505F1A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{37B3A65B-B67B-48C5-BC33-4099D505F1A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{37B3A65B-B67B-48C5-BC33-4099D505F1A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

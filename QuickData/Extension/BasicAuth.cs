@@ -18,16 +18,14 @@ namespace QuickData.Extension
             else
             {
                 string userinfo = Convert.FromBase64String(actionContext.Request.Headers.Authorization.Parameter).ToString();
-
-                //Fastdb.users[]
                 if (true)
                 {
                     IsAuthorized(actionContext);
                 }
-                else
-                {
-                    HandleUnauthorizedRequest(actionContext);
-                }
+                //else
+                //{
+                //    HandleUnauthorizedRequest(actionContext);
+                //}
             }
 
         }

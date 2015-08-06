@@ -10,8 +10,7 @@ namespace FastDB.Core
     {
         fast_string=0,
         fast_list=1,
-        fast_zlist=2,
-        fast_hash = 3,
-        fast_tree =4
+        fast_hash = 2,
+        fast_tree =3
     }
 }

@@ -1,4 +1,5 @@
 ﻿using FastDB.Core;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace FastDB.Struct
 {
-    public class SetObject: FastObject
+    public class TreeObject : FastObject
     {
-        public HashSet<string> value;
+        public JObject value;
     }
 }

@@ -11,8 +11,6 @@ namespace FastDB.Core
     {
         public ObjectType type { get; set; }
 
-        public ObjectEncoding encoding { get; set; }
-
         public bool isShare { get; set; }
 
         public bool readOnly { get; set; }

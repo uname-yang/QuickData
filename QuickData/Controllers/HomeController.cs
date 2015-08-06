@@ -17,11 +17,10 @@ namespace QuickData.Controllers
             _fastdb = fastdb;
         }
 
-       // [BasicAuthorize]
+        // [BasicAuthorize]
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";
-            _fastdb.End();
             return View();
         }
     }

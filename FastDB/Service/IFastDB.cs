@@ -1,4 +1,5 @@
 ﻿using FastDB.Cache;
+using FastDB.Pattern;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,14 +10,9 @@ namespace FastDB.Service
 {
     public interface IFastDB
     {
-         IAOF AOF { get; set; }
-         ILogger Logger { get; set; }
-        IMemory Memory { get; set; }
-
-        void Start();
-        void Loop();
-        void End();
-
-
+        ISingleEntity SingleEntity { get; set; }
+        IHashEntity HashEntity { get; set; }
+        IListEntity ListEntity { get; set; }
+        ITreeEntity TreeEntity { get; set; }
     }
 }

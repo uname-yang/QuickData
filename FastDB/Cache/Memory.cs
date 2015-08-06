@@ -10,11 +10,17 @@ namespace FastDB.Cache
 {
     public class Memory : IMemory
     {
-        public ISingleRES SingleRES{ get; set;}
+        public ISingleCache SingleCache { get; set;}
+        public IListCache ListCache { get; set; }
+        public IHashCache HashCache { get; set; }
+        public ITreeCache TreeCache { get; set; }
 
-        public Memory(ISingleRES _SingleRE)
+        public Memory(ISingleCache _SingleCache,IListCache _ListCache, IHashCache _HashCache, ITreeCache _TreeCache)
         {
-            SingleRES = _SingleRE;
+            SingleCache = _SingleCache;
+            ListCache = _ListCache;
+            HashCache = _HashCache;
+            TreeCache = _TreeCache;
         }
     }
 }

@@ -10,35 +10,31 @@ namespace FastDB.Cache
 {
     public abstract class CacheService : IMemoryCache
     {
-        private Fastdb database;
+        protected Fastdb database;
 
-        public void Delete(string key)
+        public bool EnSure(string key)
         {
-            throw new NotImplementedException();
-        }
-
-        public bool EnSure(string key, FastObject entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Excute(string sql, object[] param)
-        {
-            throw new NotImplementedException();
-        }
-
-        public FastObject Find(params object[] keyValues)
-        {
-            throw new NotImplementedException();
+            database = Fastdb.Instance();
+            return database.keys.ContainsKey(key);
         }
 
         public FastObject Get(string key)
         {
             database = Fastdb.Instance();
-           return database.keys[key];
+           var value= database.keys[key];
+            value.refcount++;
+            value.lasttime = database.systime;
+            return value;
         }
 
         public void Insert(string key, FastObject entity)
+        {
+            database = Fastdb.Instance();
+            database.keys.Add(key, entity);
+            database.dirty.Enqueue(new changelog { operaType=OperationType.Insert,Key= key,Value= entity });
+        }
+
+        public void Load(string key, FastObject entity)
         {
             database = Fastdb.Instance();
             database.keys.Add(key, entity);
@@ -46,7 +42,22 @@ namespace FastDB.Cache
 
         public void Update(string key, FastObject entity)
         {
-            throw new NotImplementedException();
+            database = Fastdb.Instance();
+           if( database.keys.ContainsKey(key))
+            {
+                database.keys[key] = entity;
+            }
+            database.dirty.Enqueue(new changelog { operaType = OperationType.Update, Key = key, Value = entity });
+        }
+
+        public void Delete(string key)
+        {
+            database = Fastdb.Instance();
+            if (database.keys.ContainsKey(key))
+            {
+                database.keys.Remove(key);
+            }
+            database.dirty.Enqueue(new changelog { operaType = OperationType.Delete, Key = key, Value = null });
         }
 
     }

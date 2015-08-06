@@ -1,9 +1,7 @@
-﻿using FastDB.Service;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using FastDB.Query;
+using FastDB.Service;
+using Newtonsoft.Json.Linq;
+using System.Diagnostics;
 using System.Web.Http;
 
 namespace QuickData.Controllers
@@ -16,39 +14,47 @@ namespace QuickData.Controllers
         {
             _fastdb = fastdb;
         }
-
-        // GET: api/SingleEntity/5
-        public string Get(string  key)
+        [JsonQuery]
+        public JObject Get(string  key)
         {
-
-            var aa = new FastDB.Struct.StringObject { value = "3s",encoding=FastDB.Core.ObjectEncoding.fast_endcoding_string,type=FastDB.Core.ObjectType.fast_string };
-            _fastdb.Memory.SingleRES.Insert("sss",aa);
-
-            _fastdb.Memory.SingleRES.Get("sss");
-            return "value";
+            Stopwatch sw = new Stopwatch();
+            sw.Start();        
+            var data = _fastdb.SingleEntity.Get(key);
+            sw.Stop();
+            var tt=sw.Elapsed;
+            return data;
         }
 
-        // GET: api/SingleEntity
-        public IEnumerable<string> Get(string[] keys)
+
+        public bool Post(string key, [FromBody]object value)
         {
-            return new string[] { "value1", "value2" };
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+             var data = _fastdb.SingleEntity.Insert(key, value);
+            sw.Stop();
+            var tt = sw.Elapsed;
+            return data;
+            
         }
 
-        // POST: api/SingleEntity
-        public void Post(string key, [FromBody]string value)
+        public bool Put(string key, [FromBody]object value)
         {
-         
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            var Data = _fastdb.SingleEntity.Update(key, value);
+            sw.Stop();
+            var tt = sw.Elapsed;
+            return Data;        
         }
 
-        // PUT: api/SingleEntity/5
-        public void Put(string key, [FromBody]string value)
+        public bool Delete(string key)
         {
-
-        }
-
-        // DELETE: api/SingleEntity/5
-        public void Delete(string key)
-        {
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            var Data = _fastdb.SingleEntity.Delete(key);
+            sw.Stop();
+            var tt = sw.Elapsed;
+            return Data;
         }
     }
 }
