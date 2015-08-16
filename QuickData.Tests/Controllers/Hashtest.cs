@@ -41,7 +41,7 @@ namespace QuickData.Tests.Controllers
             var dt = new Dictionary<string, object>();
             dt.Add("key1",new testmodel { i = 1, s = "yuyang" });
             dt.Add("key2", new testmodel { i = 1, s = "yuyang" });
-            sct.Post("key", dt);
+            sct.Post("key", Newtonsoft.Json.JsonConvert.SerializeObject(dt));
         }
         [TestMethod]
         public void get()

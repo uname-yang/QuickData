@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using FastDB.Core;
 
 namespace FastDB.Pattern.Implementation
 {
@@ -33,12 +34,13 @@ namespace FastDB.Pattern.Implementation
             var value = Memory.TreeCache.Get(key);
             if (value == null)
             {
-                var aof = AOF.Get(key);
+                var aof = AOF.Get(key, ObjectType.fast_tree);
                 if (aof != null)
                 {
-                    Memory.SingleCache.Load(key, aof);
-                }
-                return new JObject(aof);
+                    Memory.TreeCache.Load(key, aof);
+                    return new JObject(aof);
+                }          
+                return null;
             }
             else
             {
@@ -53,7 +55,7 @@ namespace FastDB.Pattern.Implementation
             {
                 return false;
             }
-            Memory.SingleCache.Add(key, entity);
+            Memory.TreeCache.Add(key, entity);
             return true;
         }
 
@@ -66,7 +68,7 @@ namespace FastDB.Pattern.Implementation
             var value = Memory.TreeCache.Get(key);
             if (value == null)
             {
-                var aof = AOF.Get(key);
+                var aof = AOF.Get(key, ObjectType.fast_tree);
                 if (aof != null)
                 {
                     Memory.TreeCache.Load(key, aof);

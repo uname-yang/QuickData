@@ -1,4 +1,5 @@
-﻿using FastDB.Service;
+﻿using FastDB.Core;
+using FastDB.Service;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -23,12 +24,13 @@ namespace FastDB.Pattern.Implementation
             var value = Memory.SingleCache.Get(key);
             if (value == null)
             {
-                var aof = AOF.Get(key);
+                var aof = AOF.Get(key,ObjectType.fast_string);
                 if (aof != null)
                 {
                     Memory.SingleCache.Load(key, aof);
+                    return new JObject(aof);
                 }
-                return new JObject(aof);
+                return null;
             }
             else
             {
@@ -56,7 +58,7 @@ namespace FastDB.Pattern.Implementation
             var value = Memory.SingleCache.Get(key);
             if (value == null)
             {
-                var aof = AOF.Get(key);
+                var aof = AOF.Get(key, ObjectType.fast_string);
                 if (aof != null)
                 {
                     Memory.SingleCache.Load(key, aof);

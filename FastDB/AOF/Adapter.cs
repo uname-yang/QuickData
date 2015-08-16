@@ -116,9 +116,9 @@ namespace FastDB.AOF
             sdb.isrunning = false;
         }
 
-        public string Get(string key)
+        public string Get(string key,ObjectType type)
         {
-           var kv= _keyValue.Get(p => p.key == key);
+           var kv= _keyValue.Get(p => p.key == key&&p.type==(int)type);
             if (kv==null)
             {
                 return null;
@@ -138,6 +138,9 @@ namespace FastDB.AOF
                     break;
                 case ObjectType.fast_hash:
                     _keyValue.Insert(new SQLST.Model.Models.KeyValueST { type = (int)entity.type, key = key, isShare = entity.isShare, readOnly = entity.readOnly, value = (entity as HashObject).value.ToString() });
+                    break;
+                case ObjectType.fast_tree:
+                    _keyValue.Insert(new SQLST.Model.Models.KeyValueST { type = (int)entity.type, key = key, isShare = entity.isShare, readOnly = entity.readOnly, value = (entity as TreeObject ).value.ToString() });
                     break;
                 default:
                     break;
@@ -169,6 +172,13 @@ namespace FastDB.AOF
                     tar.isShare = entity.isShare;
                     tar.readOnly = entity.readOnly;
                     tar.value = (entity as HashObject).value.ToString();
+                    _keyValue.Update(tar);
+                    break;
+                case ObjectType.fast_tree:
+                    tar.type = (int)entity.type;
+                    tar.isShare = entity.isShare;
+                    tar.readOnly = entity.readOnly;
+                    tar.value = (entity as TreeObject ).value.ToString();
                     _keyValue.Update(tar);
                     break;
 

@@ -28,6 +28,7 @@ namespace QuickData
             DependencyInjection.Initialise();
             DependencyResolver.Current.GetService<DBStart>();
             GlobalConfiguration.Configuration.EnsureInitialized();//???
+           // GlobalConfiguration.Configuration.EnableCors();
         }
 
         protected void Application_End()

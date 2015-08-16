@@ -3,6 +3,7 @@ using FastDB.Service;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace QuickData.Controllers
 {
@@ -14,47 +15,43 @@ namespace QuickData.Controllers
         {
             _fastdb = fastdb;
         }
-        [JsonQuery]
-        public JObject Get(string  key)
+
+       // [EnableCors(origins: "http://localhost:7921", headers: "*", methods: "*")]
+        public string Get()
         {
-            Stopwatch sw = new Stopwatch();
-            sw.Start();        
+            return "SB";
+        }
+
+        [JsonQuery]
+      //  [EnableCors(origins: "*", headers: "*", methods: "*")]
+        public JObject Get(string  key)
+        { 
             var data = _fastdb.SingleEntity.Get(key);
-            sw.Stop();
-            var tt=sw.Elapsed;
             return data;
         }
 
 
         public bool Post(string key, [FromBody]object value)
         {
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
              var data = _fastdb.SingleEntity.Insert(key, value);
-            sw.Stop();
-            var tt = sw.Elapsed;
-            return data;
-            
+            return data;       
         }
 
         public bool Put(string key, [FromBody]object value)
         {
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
             var Data = _fastdb.SingleEntity.Update(key, value);
-            sw.Stop();
-            var tt = sw.Elapsed;
             return Data;        
         }
 
         public bool Delete(string key)
         {
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
             var Data = _fastdb.SingleEntity.Delete(key);
-            sw.Stop();
-            var tt = sw.Elapsed;
             return Data;
+        }
+
+        public string Options()
+        {
+            return null;
         }
     }
 }

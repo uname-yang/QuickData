@@ -4,6 +4,7 @@ using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace QuickData.Controllers
 {
@@ -15,19 +16,21 @@ namespace QuickData.Controllers
             _fastdb = fastdb;
         }
 
+        public string Get()
+        {
+            return "SB";
+        }
+
         /// <summary>
         /// 获取整个字典
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
         [JsonQuery]
+       // [EnableCors(origins:"*",headers:"*",methods:"*")]
         public JObject Get(string key)
         {
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
             var Data = _fastdb.HashEntity.Get(key);
-            sw.Stop();
-            var tt = sw.Elapsed;
             return Data;
         }
 
@@ -36,9 +39,9 @@ namespace QuickData.Controllers
         /// </summary>
         /// <param name="key"></param>
         /// <param name="value"></param>
-        public void Post(string key, [FromBody]object value)
+        public bool Post(string key, [FromBody]object value)
         {
-            _fastdb.HashEntity.Insert(key, value);
+           return _fastdb.HashEntity.Insert(key, value);
         }
 
         /// <summary>
@@ -46,18 +49,18 @@ namespace QuickData.Controllers
         /// </summary>
         /// <param name="key"></param>
         /// <param name="value"></param>
-        public void Put(string key, [FromBody]object value)
+        public bool  Put(string key, [FromBody]object value)
         {
-            _fastdb.HashEntity.Update(key, value);
+            return _fastdb.HashEntity.Update(key, value);
         }
 
         /// <summary>
         /// 删除字典
         /// </summary>
         /// <param name="key"></param>
-        public void Delete(string key)
+        public bool Delete(string key)
         {
-            _fastdb.HashEntity.Delete(key);
+           return  _fastdb.HashEntity.Delete(key);
         }
 
         /// <summary>
@@ -67,6 +70,7 @@ namespace QuickData.Controllers
         /// <param name="mkey">字典的key</param>
         /// <returns></returns>
         [JsonQuery]
+      //  [EnableCors(origins: "*", headers: "*", methods: "*")]
         public JObject Get(string key, string mkey)
         {
             return _fastdb.HashEntity.Fetch(key,mkey);
@@ -105,6 +109,11 @@ namespace QuickData.Controllers
         public bool Delete(string key, string mkey)
         {
             return _fastdb.HashEntity.Remove(key,mkey);
+        }
+
+        public string Options()
+        {
+            return null;
         }
     }
 }

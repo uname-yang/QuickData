@@ -56,4 +56,31 @@ Global
 		{5755AC96-EFD7-48FE-9D7B-2480C431077A} = {417B702B-CE38-4594-8BDB-E1D2A2FD28DF}
 		{C97D1044-DEE1-4112-9D07-897ACFB5C416} = {417B702B-CE38-4594-8BDB-E1D2A2FD28DF}
 	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://172.16.222.100:8080/tfs/projectcode2014
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = FastDB\\FastDB.csproj
+		SccProjectName1 = FastDB
+		SccLocalPath1 = FastDB
+		SccProjectUniqueName2 = QuickData.Tests\\QuickData.Tests.csproj
+		SccProjectName2 = QuickData.Tests
+		SccLocalPath2 = QuickData.Tests
+		SccProjectUniqueName3 = QuickData\\QuickData.csproj
+		SccProjectName3 = QuickData
+		SccLocalPath3 = QuickData
+		SccProjectUniqueName4 = SQLST.Data\\SQLST.Data.csproj
+		SccProjectTopLevelParentUniqueName4 = QuickData.sln
+		SccProjectName4 = SQLST.Data
+		SccLocalPath4 = SQLST.Data
+		SccProjectUniqueName5 = SQLST.Model\\SQLST.Model.csproj
+		SccProjectTopLevelParentUniqueName5 = QuickData.sln
+		SccProjectName5 = SQLST.Model
+		SccLocalPath5 = SQLST.Model
+		SccProjectUniqueName6 = SQLST\\SQLST.csproj
+		SccProjectTopLevelParentUniqueName6 = QuickData.sln
+		SccProjectName6 = SQLST
+		SccLocalPath6 = SQLST
+	EndGlobalSection
 EndGlobal

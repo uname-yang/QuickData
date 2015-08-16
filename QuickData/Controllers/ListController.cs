@@ -4,6 +4,7 @@ using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Mvc;
 
 namespace QuickData.Controllers
@@ -17,31 +18,31 @@ namespace QuickData.Controllers
         }
 
         [JsonQuery]
+      //  [EnableCors(origins: "*", headers: "*", methods: "*")]
         public JArray Get(string key)
         {
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
            var Data = _fastdb.ListEntity.Get(key);
-            sw.Stop();
-            var tt = sw.Elapsed;
             return Data;
         }
 
-        public void Post(string key, [FromBody]object value)
+        public bool Post(string key, [FromBody]object value)
         {
-            _fastdb.ListEntity.Insert(key, value);
+            return _fastdb.ListEntity.Insert(key, value);
         }
 
-        public void Put(string key, [FromBody]object value)
+        public bool Put(string key, [FromBody]object value)
         {
-            _fastdb.ListEntity.Update(key, value);
+            return _fastdb.ListEntity.Update(key, value);
         }
 
-        public void Delete(string key)
+        public bool Delete(string key)
         {
-            _fastdb.ListEntity.Delete(key);
+            return  _fastdb.ListEntity.Delete(key);
         }
 
-
+        public string Options()
+        {
+            return null;
+        }
     }
 }

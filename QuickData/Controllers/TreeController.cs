@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace QuickData.Controllers
 {
@@ -21,63 +22,36 @@ namespace QuickData.Controllers
         }
 
         [JsonQuery]
+      //  [EnableCors(origins: "*", headers: "*", methods: "*")]
         public JObject Get(string key)
         {
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
-            var data = _fastdb.TreeEntity.Get(key);
-            sw.Stop();
-            var tt = sw.Elapsed;
-            return data;
+            return _fastdb.TreeEntity.Get(key);
         }
 
         public bool Post(string key, [FromBody]object value)
         {
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
-            var data = _fastdb.TreeEntity.Insert(key, value);
-            sw.Stop();
-            var tt = sw.Elapsed;
-            return data;
-
+            return  _fastdb.TreeEntity.Insert(key, value);
         }
 
         public bool Put(string key, [FromBody]object value)
         {
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
-            var Data = _fastdb.TreeEntity.Update(key, value);
-            sw.Stop();
-            var tt = sw.Elapsed;
-            return Data;
+            return _fastdb.TreeEntity.Update(key, value);
         }
 
         public bool Delete(string key)
         {
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
-            var Data = _fastdb.TreeEntity.Delete(key);
-            sw.Stop();
-            var tt = sw.Elapsed;
-            return Data;
+            return _fastdb.TreeEntity.Delete(key);
         }
 
         [JsonQuery]
         public JObject Get(string key, string node)
         {
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
-            var data = _fastdb.TreeEntity.Get(key);
-            sw.Stop();
-            var tt = sw.Elapsed;
-            return data;
+            return _fastdb.TreeEntity.Get(key);
         }
 
         [JsonQuery]
         public JArray Get(string key, string child,bool includechildren)
         {
-            var data = _fastdb.TreeEntity.Get(key);
-
             return null;
         }
 
@@ -89,6 +63,11 @@ namespace QuickData.Controllers
         public bool Delete(string key, string node)
         {
             return true;
+        }
+
+        public string Options()
+        {
+            return null;
         }
     }
 }

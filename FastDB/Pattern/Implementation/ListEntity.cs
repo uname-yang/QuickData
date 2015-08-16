@@ -1,4 +1,5 @@
-﻿using FastDB.Service;
+﻿using FastDB.Core;
+using FastDB.Service;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -23,12 +24,13 @@ namespace FastDB.Pattern.Implementation
             var value = Memory.ListCache.Get(key);
             if (value == null)
             {
-                var aof = AOF.Get(key);
+                var aof = AOF.Get(key, ObjectType.fast_list);
                 if (aof != null)
                 {
                     Memory.ListCache.Load(key, aof);
+                    return JArray.Parse(aof);
                 }
-                return  JArray.Parse(aof);
+                return null;
             }
             else
             {
@@ -55,7 +57,7 @@ namespace FastDB.Pattern.Implementation
             var value = Memory.ListCache.Get(key);
             if (value == null)
             {
-                var aof = AOF.Get(key);
+                var aof = AOF.Get(key,ObjectType.fast_list);
                 if (aof != null)
                 {
                     Memory.ListCache.Load(key, aof);

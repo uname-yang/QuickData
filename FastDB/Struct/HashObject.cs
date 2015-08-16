@@ -13,7 +13,7 @@ namespace FastDB.Struct
     {
         public JObject value { get; private set; }
 
-        public object _value { get; private set; }
+       // public object _value { get; private set; }
 
         public HashObject(Object obj, ObjectType type, bool isShare, bool readOnly, DateTime lasttime)
         {
@@ -22,7 +22,7 @@ namespace FastDB.Struct
             base.readOnly = readOnly;
             base.refcount = 0;
             base.lasttime = lasttime;
-            _value = obj;
+            //_value = obj;
             value = JObject.FromObject(obj);
         }
 
@@ -33,7 +33,7 @@ namespace FastDB.Struct
             base.readOnly = readOnly;
             base.refcount = 0;
             base.lasttime = lasttime;
-            _value = obj;
+           // _value = obj;
             value = JObject.Parse(obj);
         }
 

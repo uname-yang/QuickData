@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using FastDB.Core;
 
 namespace FastDB.Pattern.Implementation
 {
@@ -23,7 +24,7 @@ namespace FastDB.Pattern.Implementation
             var value = Memory.HashCache.Get(key);
             if (value == null)
             {
-                var aof = AOF.Get(key);
+                var aof = AOF.Get(key,ObjectType.fast_hash);
                 if (aof != null)
                 {
                     Memory.HashCache.Load(key, aof);
@@ -57,7 +58,7 @@ namespace FastDB.Pattern.Implementation
             var value = Memory.HashCache.Get(key);
             if (value == null)
             {
-                var aof = AOF.Get(key);
+                var aof = AOF.Get(key,ObjectType.fast_hash);
                 if (aof != null)
                 {
                     Memory.HashCache.Load(key, aof);
@@ -98,7 +99,7 @@ namespace FastDB.Pattern.Implementation
             var value = Memory.HashCache.Get(key);
             if (value == null)
             {
-                var aof = AOF.Get(key);
+                var aof = AOF.Get(key, ObjectType.fast_hash);
                 if (aof != null)
                 {
                     Memory.HashCache.Load(key, aof);
@@ -120,7 +121,7 @@ namespace FastDB.Pattern.Implementation
             var value = Memory.HashCache.Get(key);
             if (value == null)
             {
-                var aof = AOF.Get(key);
+                var aof = AOF.Get(key, ObjectType.fast_hash);
                 if (aof != null)
                 {
                     Memory.HashCache.Load(key, aof);
@@ -142,7 +143,7 @@ namespace FastDB.Pattern.Implementation
             var value = Memory.HashCache.Get(key);
             if (value == null)
             {
-                var aof = AOF.Get(key);
+                var aof = AOF.Get(key, ObjectType.fast_hash);
                 if (aof != null)
                 {
                     Memory.HashCache.Load(key, aof);

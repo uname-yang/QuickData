@@ -12,7 +12,7 @@ namespace FastDB.Service
         void init(Fastdb sdb);
         void stop(Fastdb sdb);
         void sync(Fastdb sdb);
-        string Get(string key);
+        string Get(string key, ObjectType type);
         void Insert(string key, FastObject entity);
         void Update(string key, FastObject entity);
         void Delete(string key);
